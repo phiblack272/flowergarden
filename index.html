@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dành tặng cho thu hương 1 vườn hoa nhỏ</title>
+</head>
+<style>
+    @charset "UTF-8";
+:root {
+  --transform: scale(0.8);
+  --speed: 2s;
+  --stem: 90;
+  --flower: 300;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #173f73;
+  display: flex;
+  justify-content: center;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.flower {
+  -webkit-animation: swing var(--speed) ease infinite alternate both;
+          animation: swing var(--speed) ease infinite alternate both;
+  position: relative;
+  transform-origin: 50% 100%;
+  width: 2rem;
+}
+.flower::before {
+  -webkit-animation: before 3s ease infinite alternate both;
+          animation: before 3s ease infinite alternate both;
+  bottom: 7rem;
+  content: "✿";
+  color: hsl(var(--flower), 67%, 30%);
+  font-size: 4rem;
+  left: 0;
+  position: absolute;
+  -webkit-text-stroke: 3px;
+}
+.flower::after {
+  bottom: -3rem;
+  color: hsl(var(--stem), 67%, 20%);
+  content: "(";
+  font-size: 6rem;
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  transform: rotate(60deg) skew(60deg) scale(1.2, 1.8);
+}
+
+.flower:nth-child(3n) {
+  -webkit-animation: swingLeft var(--speed) ease infinite alternate both;
+          animation: swingLeft var(--speed) ease infinite alternate both;
+}
+.flower:nth-child(3n)::before {
+  -webkit-animation: beforeLeft var(--speed) ease infinite alternate both;
+          animation: beforeLeft var(--speed) ease infinite alternate both;
+}
+.flower:nth-child(3n)::after {
+  content: ")";
+  left: 1.5rem;
+  bottom: -4.5rem;
+}
+
+@-webkit-keyframes swingLeft {
+  0% {
+    transform: var(--transform) rotate(0deg);
+  }
+  100% {
+    transform: var(--transform) rotate(7deg);
+  }
+}
+
+@keyframes swingLeft {
+  0% {
+    transform: var(--transform) rotate(0deg);
+  }
+  100% {
+    transform: var(--transform) rotate(7deg);
+  }
+}
+@-webkit-keyframes beforeLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(7deg);
+  }
+}
+@keyframes beforeLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(7deg);
+  }
+}
+@-webkit-keyframes swing {
+  0% {
+    transform: var(--transform) rotate(0deg);
+  }
+  100% {
+    transform: var(--transform) rotate(-7deg);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: var(--transform) rotate(0deg);
+  }
+  100% {
+    transform: var(--transform) rotate(-7deg);
+  }
+}
+@-webkit-keyframes before {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes before {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+</style>
+<body>
+    <div class="container">
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+      </div>
+      <script>
+        const flowers = document.querySelectorAll(".flower");
+flowers.forEach((flower) => {
+  flower.style.setProperty("--speed",(2 + 2 * Math.random()) + "s");
+  flower.style.setProperty("--transform", "scale(" + (0.4 + 0.5 * Math.random()) + ")");
+  flower.style.setProperty("--stem",(110 + 40 * Math.random()));
+  flower.style.setProperty("--flower",(250 + 180 * Math.random()));
+});
+      </script>
+</body>
+</html>
